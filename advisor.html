@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gift Advisor - togift</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;700;800&family=Readex+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <svg width="34" height="34" viewBox="0 0 100 100">
+            <rect x="14" y="42" width="72" height="46" rx="8" fill="#800020" />
+            <rect x="8" y="28" width="84" height="20" rx="6" fill="#800020" />
+            <rect x="44" y="28" width="12" height="60" fill="#D45060" />
+            <path
+              d="M50 78 C30 64 36 52 44 56 C47 58 50 61 50 61 C50 61 53 58 56 56 C64 52 70 64 50 78 Z"
+              fill="#FFF9F2"
+            />
+          </svg>
+          togift
+        </a>
+        <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        <nav class="nav" id="nav">
+          <a href="search.html">Explore</a>
+          <a href="stores.html">Stores</a>
+          <a href="index.html#occasions">Occasions</a>
+        </nav>
+        <form class="header-search" onsubmit="return headerSearch();">
+          <input
+            type="text"
+            id="headerQ"
+            placeholder="Search people's wishlists"
+          />
+          <button type="submit">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </form>
+        <div class="header-right" id="headerRight"></div>
+      </div>
+    </header>
+
+    <div class="container" style="padding-top:24px">
+      <div class="chat-layout">
+        <div>
+          <button class="btn btn-block" onclick="newChat()">+ New chat</button>
+          <p class="eyebrow" style="margin-top:20px">PAST CHATS</p>
+          <div class="chat-list" id="pastChats"></div>
+        </div>
+        <div>
+          <h2><span class="material-symbols-outlined">auto_awesome</span> Gift Advisor</h2>
+          <div id="chatBox"></div>
+          <form class="searchbox" style="margin-top:16px" onsubmit="return sendMessage()">
+            <input type="text" id="msgInput" placeholder="Describe the person and your budget, e.g. my colleague is in hospital after surgery, budget 100 JOD">
+            <button class="btn btn-ai" type="submit">Send</button>
+          </form>
+          <p class="small muted">Privacy: share only what's needed, no medical details. You can delete chats anytime. AI suggestions can be imperfect.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3 style="color: #fff">togift</h3>
+          <p>
+            Give what they actually wished for.
+          </p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="search.html">All gifts</a></li>
+            <li><a href="stores.html">Partner stores</a></li>
+            <li><a href="advisor.html">Gift Advisor</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="partner.html">Become a partner store</a></li>
+            <li><a href="login.html">Log in</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/advisor.js"></script>
+  </body>
+</html>

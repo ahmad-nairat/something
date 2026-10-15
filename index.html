@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>togift - Give what they actually wished for</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;700;800&family=Readex+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <svg width="34" height="34" viewBox="0 0 100 100">
+            <rect x="14" y="42" width="72" height="46" rx="8" fill="#800020" />
+            <rect x="8" y="28" width="84" height="20" rx="6" fill="#800020" />
+            <rect x="44" y="28" width="12" height="60" fill="#D45060" />
+            <path
+              d="M50 78 C30 64 36 52 44 56 C47 58 50 61 50 61 C50 61 53 58 56 56 C64 52 70 64 50 78 Z"
+              fill="#FFF9F2"
+            />
+          </svg>
+          togift
+        </a>
+        <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        <nav class="nav" id="nav">
+          <a href="search.html">Explore</a>
+          <a href="stores.html">Stores</a>
+          <a href="index.html#occasions">Occasions</a>
+        </nav>
+        <form class="header-search" onsubmit="return headerSearch();">
+          <input
+            type="text"
+            id="headerQ"
+            placeholder="Search people's wishlists"
+          />
+          <button type="submit">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </form>
+        <div class="header-right" id="headerRight"></div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">GIFTING, TOGETHER</div>
+          <h1>Give what they <span>actually</span> wished for</h1>
+          <p class="muted">Find a friend's wishlist and gift it in full or together with others. We wrap it and deliver it on time.</p>
+          <div class="tabs">
+            <button class="tab active" id="tabFind" onclick="switchTab('find')">Find a wishlist</button>
+            <button class="tab" id="tabIdeas" onclick="switchTab('ideas')"><span class="material-symbols-outlined">auto_awesome</span> AI Gift ideas</button>
+          </div>
+          <form class="searchbox" onsubmit="return heroSearch()">
+            <input type="text" id="heroInput" placeholder="Search by name or @username">
+            <button class="btn" id="heroBtn" type="submit">Search</button>
+          </form>
+          <p class="small muted" id="heroHint">Try "Zain", "@ahmad.n" or "Saba".</p>
+        </div>
+        <div class="wish-feature">
+          <div class="row between">
+            <b id="featTitle"></b>
+            <span class="badge">Wedding</span>
+          </div>
+          <div class="spacer"></div>
+          <div id="featBody"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>How togift works</h2>
+        <div class="grid">
+          <div class="card"><h3>1. Find the wishlist</h3><p class="muted">Search a friend by name or @username and open their public wishlist.</p></div>
+          <div class="card"><h3>2. Gift it, or part of it</h3><p class="muted">Pay in full, or gift part of it and let friends complete the rest.</p></div>
+          <div class="card"><h3>3. We wrap and deliver</h3><p class="muted">Our partner stores prepare it and our delivery partner brings it on time.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="row between">
+          <h2>Coming up for people you follow</h2>
+          <a href="search.html?tab=people">See all</a>
+        </div>
+        <div class="grid" id="comingUp"></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" id="popular">
+      <div class="container">
+        <div class="row between">
+          <h2>Popular gifts</h2>
+          <a href="search.html">See all gifts</a>
+        </div>
+        <p class="muted">Real products from our partner stores, wrapped and delivered.</p>
+        <div class="grid" id="popularGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <h2>Shop by category</h2>
+        <div class="grid" id="catGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" id="occasions">
+      <div class="container">
+        <h2>By occasion</h2>
+        <div class="grid" id="occGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="eyebrow">OUR PARTNER STORES</div>
+        <div class="grid" id="storeGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="card" style="background:#800020;color:#fff;border:none">
+          <h2>Sell to people who already know what they want.</h2>
+          <p>Join as a partner store and reach people who are ready to buy.</p>
+          <a href="partner.html" class="btn btn-outline">Become a partner store</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3 style="color: #fff">togift</h3>
+          <p>
+            Give what they actually wished for.
+          </p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="search.html">All gifts</a></li>
+            <li><a href="stores.html">Partner stores</a></li>
+            <li><a href="advisor.html">Gift Advisor</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="partner.html">Become a partner store</a></li>
+            <li><a href="login.html">Log in</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

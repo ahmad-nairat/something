@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign up - togift</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;700;800&family=Readex+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <svg width="34" height="34" viewBox="0 0 100 100">
+            <rect x="14" y="42" width="72" height="46" rx="8" fill="#800020" />
+            <rect x="8" y="28" width="84" height="20" rx="6" fill="#800020" />
+            <rect x="44" y="28" width="12" height="60" fill="#D45060" />
+            <path
+              d="M50 78 C30 64 36 52 44 56 C47 58 50 61 50 61 C50 61 53 58 56 56 C64 52 70 64 50 78 Z"
+              fill="#FFF9F2"
+            />
+          </svg>
+          togift
+        </a>
+        <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        <nav class="nav" id="nav">
+          <a href="search.html">Explore</a>
+          <a href="stores.html">Stores</a>
+          <a href="index.html#occasions">Occasions</a>
+        </nav>
+        <form class="header-search" onsubmit="return headerSearch();">
+          <input
+            type="text"
+            id="headerQ"
+            placeholder="Search people's wishlists"
+          />
+          <button type="submit">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </form>
+        <div class="header-right" id="headerRight"></div>
+      </div>
+    </header>
+
+    <div class="narrow" style="padding-top:30px">
+      <div id="formBox">
+        <h2>Create your ToGift account</h2>
+        <p class="muted">Make a wishlist, follow friends and earn points on every gift.</p>
+        <div class="card">
+          <div class="field" id="f_name"><label>Full name</label><input type="text" id="name"><div class="error">Enter your full name.</div></div>
+          <div class="field" id="f_username"><label>Username</label><input type="text" id="username" oninput="checkUsername()"><div class="hint">Your link: togift.com/<span id="linkName">username</span></div><div class="good hidden" id="avail"></div><div class="error" id="userErr">Choose a username.</div></div>
+          <div class="field" id="f_email"><label>Email</label><input type="email" id="email"><div class="error" id="emailErr">Enter an email like name@example.com.</div></div>
+          <div class="field" id="f_pw"><label>Password</label><input type="password" id="pw"><div class="hint">At least 8 characters</div><div class="error">Password must be at least 8 characters.</div></div>
+          <div class="field"><label>Birthday <span class="muted small">(optional)</span></label><input type="date" id="birthday"><div class="hint">Helps friends remember. Only the day and month are shown.</div></div>
+          <div class="field" id="f_terms"><label style="font-weight:400"><input type="checkbox" id="terms" style="width:auto"> I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</label><div class="error">You need to agree to continue.</div></div>
+          <button class="btn btn-block" onclick="createAccount()">Create account</button>
+          <p class="center">Already have an account? <a href="login.html">Log in</a></p>
+          <p class="center small muted">Prefer not to sign up? You can still send gifts as a guest.</p>
+        </div>
+      </div>
+
+      <div class="hidden" id="welcome">
+        <h2 id="welcomeTitle"></h2>
+        <p class="muted">Two quick ways to start:</p>
+        <div class="card" style="margin-bottom:14px"><h3>1 · Make your wishlist</h3><p class="muted">Add up to 30 gifts from partner stores and link them to your occasions.</p><a class="btn" href="my-wishlist.html">Create my wishlist</a></div>
+        <div class="card"><h3>2 · Find a friend</h3><p class="muted">Search by name or @username and follow their wishlist.</p><a class="btn btn-outline" href="search.html?tab=people">Find a friend's wishlist</a></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3 style="color: #fff">togift</h3>
+          <p>
+            Give what they actually wished for.
+          </p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="search.html">All gifts</a></li>
+            <li><a href="stores.html">Partner stores</a></li>
+            <li><a href="advisor.html">Gift Advisor</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="partner.html">Become a partner store</a></li>
+            <li><a href="login.html">Log in</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/signup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Log in - togift</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;700;800&family=Readex+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <svg width="34" height="34" viewBox="0 0 100 100">
+            <rect x="14" y="42" width="72" height="46" rx="8" fill="#800020" />
+            <rect x="8" y="28" width="84" height="20" rx="6" fill="#800020" />
+            <rect x="44" y="28" width="12" height="60" fill="#D45060" />
+            <path
+              d="M50 78 C30 64 36 52 44 56 C47 58 50 61 50 61 C50 61 53 58 56 56 C64 52 70 64 50 78 Z"
+              fill="#FFF9F2"
+            />
+          </svg>
+          togift
+        </a>
+        <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        <nav class="nav" id="nav">
+          <a href="search.html">Explore</a>
+          <a href="stores.html">Stores</a>
+          <a href="index.html#occasions">Occasions</a>
+        </nav>
+        <form class="header-search" onsubmit="return headerSearch();">
+          <input
+            type="text"
+            id="headerQ"
+            placeholder="Search people's wishlists"
+          />
+          <button type="submit">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </form>
+        <div class="header-right" id="headerRight"></div>
+      </div>
+    </header>
+
+    <div class="narrow" style="padding-top:40px;max-width:460px">
+      <div class="card" id="loginBox">
+        <div class="center" style="font-size:28px"><span class="material-symbols-outlined">lock</span></div>
+        <div class="notice" id="reason" style="display:none"></div>
+        <h2 class="center">Log in</h2>
+        <p class="muted center">Welcome back to ToGift.</p>
+        <div class="field" id="f_email"><label>Email</label><input type="email" id="email"><div class="error">Enter an email like name@example.com.</div></div>
+        <div class="field" id="f_pw">
+          <label>Password</label>
+          <input type="password" id="pw">
+          <div class="row between"><button class="btn-link small" onclick="showForgot()">Forgot password?</button><button class="btn-link small" onclick="showPassword()" id="showBtn">Show</button></div>
+          <div class="error" id="pwErr">Enter your password.</div>
+        </div>
+        <div class="notice" style="font-size:13px">Prototype demo account: <b>hind@togift.com</b> / <b>password123</b> <button class="btn-link small" onclick="fillDemo()">Fill it in</button></div>
+        <button class="btn btn-block" onclick="login()">Log in</button>
+        <p class="center">New to ToGift? <a href="signup.html">Create an account</a></p>
+      </div>
+
+      <div class="card hidden" id="forgotBox">
+        <h2>Reset your password</h2>
+        <p class="muted">Enter your account email and we'll send you a reset link.</p>
+        <div class="field" id="f_femail"><label>Email</label><input type="email" id="femail"><div class="error">Enter an email like name@example.com.</div></div>
+        <div class="notice green hidden" id="sent"><span class="material-symbols-outlined">check</span> If an account exists, we sent a reset link.</div>
+        <button class="btn btn-block" onclick="sendReset()">Send reset link</button>
+        <p class="center"><button class="btn-link" onclick="showLogin()">Back to log in</button></p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3 style="color: #fff">togift</h3>
+          <p>
+            Give what they actually wished for.
+          </p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="search.html">All gifts</a></li>
+            <li><a href="stores.html">Partner stores</a></li>
+            <li><a href="advisor.html">Gift Advisor</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="partner.html">Become a partner store</a></li>
+            <li><a href="login.html">Log in</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

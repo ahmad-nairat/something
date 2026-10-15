@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Settings - togift</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;700;800&family=Readex+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <svg width="34" height="34" viewBox="0 0 100 100">
+            <rect x="14" y="42" width="72" height="46" rx="8" fill="#800020" />
+            <rect x="8" y="28" width="84" height="20" rx="6" fill="#800020" />
+            <rect x="44" y="28" width="12" height="60" fill="#D45060" />
+            <path
+              d="M50 78 C30 64 36 52 44 56 C47 58 50 61 50 61 C50 61 53 58 56 56 C64 52 70 64 50 78 Z"
+              fill="#FFF9F2"
+            />
+          </svg>
+          togift
+        </a>
+        <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        <nav class="nav" id="nav">
+          <a href="search.html">Explore</a>
+          <a href="stores.html">Stores</a>
+          <a href="index.html#occasions">Occasions</a>
+        </nav>
+        <form class="header-search" onsubmit="return headerSearch();">
+          <input
+            type="text"
+            id="headerQ"
+            placeholder="Search people's wishlists"
+          />
+          <button type="submit">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </form>
+        <div class="header-right" id="headerRight"></div>
+      </div>
+    </header>
+
+    <div class="narrow" style="padding-top:30px">
+      <h2>Settings</h2>
+      <p class="muted" id="who"></p>
+
+      <div class="card" style="margin-bottom:18px">
+        <h3>Profile</h3>
+        <div class="row" style="margin-bottom:14px"><div class="person-photo" id="photo"></div><span class="muted small">Photo upload is not part of this prototype.</span></div>
+        <div class="field" id="f_name"><label>Name</label><input type="text" id="name"><div class="error">Enter your name.</div></div>
+        <div class="field" id="f_username"><label>Username</label><input type="text" id="username"><div class="hint">Your link: togift.com/<span id="linkName"></span></div><div class="error" id="userErr">Use 3 to 20 letters, numbers, dots or underscores.</div></div>
+        <div class="field" id="f_bio"><label>Bio <span class="muted small">(optional)</span></label><textarea id="bio" rows="2" maxlength="120"></textarea><div class="error">Bio can be up to 120 characters.</div></div>
+        <div class="notice green hidden" id="ok1">Changes saved.</div>
+        <button class="btn" onclick="saveProfile()">Save changes</button>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <h3>Delivery address</h3>
+        <p class="small muted"><span class="material-symbols-outlined">lock</span> Hidden from other users; only the delivery company receives it.</p>
+        <div class="field" id="f_city"><label>City</label><input type="text" id="city"><div class="error">Enter your city.</div></div>
+        <div class="field" id="f_phone"><label>Phone</label><input type="text" id="phone"><div class="error">Enter a 10-digit mobile number starting with 07.</div></div>
+        <div class="field" id="f_address"><label>Area, street and building</label><input type="text" id="address"><div class="error">Enter your area, street and building.</div></div>
+        <div class="field"><label>Delivery notes <span class="muted small">(optional)</span></label><input type="text" id="notes"></div>
+        <div class="notice green hidden" id="ok2">Changes saved.</div>
+        <button class="btn" onclick="saveAddress()">Save address</button>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <h3>Privacy</h3>
+        <div class="field"><label>Who can see my wishlist</label>
+          <select id="visibility" onchange="saveVisibility()"><option>Public</option><option>Followers only</option><option>Private</option></select>
+        </div>
+        <div class="row between"><div><b>Allow anonymous gifts</b><div class="muted small">Friends can send you gifts without showing their name.</div></div><button class="switch" id="anonSwitch" onclick="toggleAnon()" aria-label="Allow anonymous gifts"></button></div>
+        <p class="small muted">You can also change visibility from <a href="my-wishlist.html">My wishlist</a>.</p>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <h3>Password</h3>
+        <div class="field" id="f_cur"><label>Current password</label><input type="password" id="cur"><div class="error">That is not your current password.</div></div>
+        <div class="field" id="f_new"><label>New password</label><input type="password" id="newpw"><div class="hint">At least 8 characters.</div><div class="error">Password must be at least 8 characters.</div></div>
+        <div class="field" id="f_conf"><label>Confirm new password</label><input type="password" id="conf"><div class="error">The passwords do not match.</div></div>
+        <div class="notice green hidden" id="ok3">Changes saved.</div>
+        <button class="btn" onclick="savePassword()">Update password</button>
+      </div>
+
+      <div class="card">
+        <h3>Log out</h3>
+        <p class="muted">You'll need your email and password to log back in. Your wishlist and points stay saved.</p>
+        <button class="btn btn-outline" onclick="logout()">Log out</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3 style="color: #fff">togift</h3>
+          <p>
+            Give what they actually wished for.
+          </p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="search.html">All gifts</a></li>
+            <li><a href="stores.html">Partner stores</a></li>
+            <li><a href="advisor.html">Gift Advisor</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="partner.html">Become a partner store</a></li>
+            <li><a href="login.html">Log in</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/settings.js"></script>
+  </body>
+</html>

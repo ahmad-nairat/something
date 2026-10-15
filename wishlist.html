@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wishlist - togift</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;700;800&family=Readex+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <svg width="34" height="34" viewBox="0 0 100 100">
+            <rect x="14" y="42" width="72" height="46" rx="8" fill="#800020" />
+            <rect x="8" y="28" width="84" height="20" rx="6" fill="#800020" />
+            <rect x="44" y="28" width="12" height="60" fill="#D45060" />
+            <path
+              d="M50 78 C30 64 36 52 44 56 C47 58 50 61 50 61 C50 61 53 58 56 56 C64 52 70 64 50 78 Z"
+              fill="#FFF9F2"
+            />
+          </svg>
+          togift
+        </a>
+        <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+        <nav class="nav" id="nav">
+          <a href="search.html">Explore</a>
+          <a href="stores.html">Stores</a>
+          <a href="index.html#occasions">Occasions</a>
+        </nav>
+        <form class="header-search" onsubmit="return headerSearch();">
+          <input
+            type="text"
+            id="headerQ"
+            placeholder="Search people's wishlists"
+          />
+          <button type="submit">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </form>
+        <div class="header-right" id="headerRight"></div>
+      </div>
+    </header>
+
+    <div class="container" id="page">
+      <div class="crumbs"><a href="index.html">Home</a> / <span id="crumbName"></span>'s wishlist</div>
+
+      <div class="card">
+        <div class="row between">
+          <div class="row">
+            <div class="person-photo" id="photo"></div>
+            <div>
+              <h2 id="pname" style="margin:0"></h2>
+              <div class="muted" id="pmeta"></div>
+              <div class="row" id="occBadges" style="margin-top:8px"></div>
+            </div>
+          </div>
+          <div class="row">
+            <button class="btn btn-outline" id="followBtn" onclick="toggleFollow()">Follow</button>
+            <button class="btn btn-outline" onclick="shareLink()">Share</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row between" style="margin:20px 0 10px 0">
+        <div class="chips" id="occFilter"></div>
+        <div>
+          <label class="small muted">Sort </label>
+          <select id="sortBy" onchange="showItems()" style="padding:8px;border-radius:10px;border:1.5px solid #cfc3b6">
+            <option value="wanted">Most wanted first</option>
+            <option value="price">Price: low to high</option>
+            <option value="funded">Closest to funded</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="occInfo"></div>
+      <div id="itemsBox"></div>
+    </div>
+
+    <div class="container hidden" id="notFound">
+      <div class="card center" style="margin-top:40px">
+        <h2>We can't find this wishlist</h2>
+        <p class="muted">Check the username, or search for the person again.</p>
+        <a class="btn" href="search.html?tab=people">Search people</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3 style="color: #fff">togift</h3>
+          <p>
+            Give what they actually wished for.
+          </p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="search.html">All gifts</a></li>
+            <li><a href="stores.html">Partner stores</a></li>
+            <li><a href="advisor.html">Gift Advisor</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="partner.html">Become a partner store</a></li>
+            <li><a href="login.html">Log in</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+  </body>
+</html>
